@@ -40,7 +40,7 @@ const logger = new Logger('SignIn');
 export default class SignIn extends AuthPiece {
     constructor(props) {
         super(props);
-
+        console.log("cust");
         this.checkContact = this.checkContact.bind(this);
         this.signIn = this.signIn.bind(this);
         this.onKeyDown = this.onKeyDown.bind(this);
@@ -134,10 +134,10 @@ export default class SignIn extends AuthPiece {
                         onAuthEvent={onAuthEvent}
                     />
                     <FormField theme={theme}>
-                        <InputLabel theme={theme}>{I18n.get('Username')} *</InputLabel>
+                        <InputLabel theme={theme}>{I18n.get('Email')} *</InputLabel>
                         <Input
                             autoFocus
-                            placeholder={I18n.get('Enter your username')}
+                            placeholder={I18n.get('Enter your email')}
                             theme={theme}
                             key="username"
                             name="username"
@@ -171,14 +171,6 @@ export default class SignIn extends AuthPiece {
                             {I18n.get('Sign In')}
                         </Button>
                     </SectionFooterPrimaryContent>
-                    {
-                        !hideSignUp && <SectionFooterSecondaryContent theme={theme}>
-                            {I18n.get('No account? ')}
-                            <Link theme={theme} onClick={() => this.changeState('signUp')}>
-                                {I18n.get('Create account')}
-                            </Link>
-                        </SectionFooterSecondaryContent>
-                    }
                 </SectionFooter>
             </FormSection>
         );
